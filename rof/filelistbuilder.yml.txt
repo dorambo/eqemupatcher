@@ -1,0 +1,3 @@
+versiontype: rof
+downloadprefix: "https://github.com/dorambo/eqemupatcher"
+files: []
