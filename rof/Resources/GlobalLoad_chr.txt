@@ -1,4 +1,4 @@
-25
+24
 liz,liz_chr
 skn,skn_chr
 mos,mos_chr
@@ -22,4 +22,3 @@ gdr,gdr_chr
 dra,dra_chr
 dr2,dr2_chr
 bwd,bwd_chr
-sro,sro_chr

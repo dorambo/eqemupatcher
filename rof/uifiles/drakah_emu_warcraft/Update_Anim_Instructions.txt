@@ -1,0 +1,181 @@
+Emulated Warcraft Interface
+By Drakah
+
+Make sure you are using a new copy of the Default Animations file.
+
+********************************************************************************************************************************************************
+**  Instructions on how to update your own interface if the EQUI_Animations.xml file gets updated via Live Patch.
+** Please note that after a Live Patch, it will take a few days for any changes to be made to the actual UI download if you rather wait.
+** This information is provided for you so you can make your own interface work at your own convenience.
+** This procedure is needed only to fix the Icon Buff Backgrounds.
+********************************************************************************************************************************************************
+
+1) Delete the EQUI_Animations.xml file from your "drakah_emu_warcraft" interface folder.
+2) Copy the EQUI_Animations.xml file from your "default" interface folder, to your "drakah_emu_warcraft" interface folder.
+3) Open up your newly copied EQUI_Animations.xml file from your "drakah_emu_warcraft" interface folder.
+
+4) Find:
+
+       <Ui2DAnimation item="BlueIconBackground">
+               <Cycle>true</Cycle>
+               <Frames>
+                       <Texture>window_pieces06.tga</Texture>
+                       <Location>
+                               <X>208</X>
+                               <Y>200</Y>
+                       </Location>
+                       <Size>
+                               <CX>8</CX>
+                               <CY>8</CY>
+                       </Size>
+                       <Hotspot>
+                               <X>0</X>
+                               <Y>0</Y>
+                       </Hotspot>
+                       <Duration>1000</Duration>
+               </Frames>
+       </Ui2DAnimation>
+       <Ui2DAnimation item="RedIconBackground">
+               <Cycle>true</Cycle>
+               <Frames>
+                       <Texture>window_pieces06.tga</Texture>
+                       <Location>
+                               <X>200</X>
+                               <Y>200</Y>
+                       </Location>
+                       <Size>
+                               <CX>8</CX>
+                               <CY>8</CY>
+                       </Size>
+                       <Hotspot>
+                               <X>0</X>
+                               <Y>0</Y>
+                       </Hotspot>
+                       <Duration>1000</Duration>
+               </Frames>
+       </Ui2DAnimation>
+       <Ui2DAnimation item="YellowIconBackground">
+               <Cycle>true</Cycle>
+               <Frames>
+                       <Texture>window_pieces06.tga</Texture>
+                       <Location>
+                               <X>200</X>
+                               <Y>208</Y>
+                       </Location>
+                       <Size>
+                               <CX>8</CX>
+                               <CY>8</CY>
+                       </Size>
+                       <Hotspot>
+                               <X>0</X>
+                               <Y>0</Y>
+                       </Hotspot>
+                       <Duration>1000</Duration>
+               </Frames>
+       </Ui2DAnimation>
+
+
+
+Replace with:
+
+         <TextureInfo item="drakah_buffbackgroundcolor.tga">
+                <Size>
+                        <CX>256</CX>
+                        <CY>256</CY>
+                </Size>
+        </TextureInfo>
+        <Ui2DAnimation item="RedIconBackground">
+                <Cycle>true</Cycle>
+                <Frames>
+                        <Texture>drakah_buffbackgroundcolor.tga</Texture>
+                        <Location>
+                                <X>0</X>
+                                <Y>0</Y>
+                        </Location>
+                        <Size>
+                                <CX>39</CX>
+                                <CY>39</CY>
+                        </Size>
+                        <Hotspot>
+                                <X>0</X>
+                                <Y>0</Y>
+                        </Hotspot>
+                        <Duration>1000</Duration>
+                </Frames>
+        </Ui2DAnimation>
+        <Ui2DAnimation item="BlueIconBackground">
+                <Cycle>true</Cycle>
+                <Frames>
+                        <Texture>drakah_buffbackgroundcolor.tga</Texture>
+                        <Location>
+                                <X>40</X>
+                                <Y>0</Y>
+                        </Location>
+                        <Size>
+                                <CX>39</CX>
+                                <CY>39</CY>
+                        </Size>
+                        <Hotspot>
+                                <X>0</X>
+                                <Y>0</Y>
+                        </Hotspot>
+                        <Duration>1000</Duration>
+                </Frames>
+        </Ui2DAnimation>
+        <Ui2DAnimation item="WhiteIconBackground">
+                <Cycle>true</Cycle>
+                <Frames>
+                        <Texture>drakah_buffbackgroundcolor.tga</Texture>
+                        <Location>
+                                <X>80</X>
+                                <Y>0</Y>
+                        </Location>
+                        <Size>
+                                <CX>39</CX>
+                                <CY>39</CY>
+                        </Size>
+                        <Hotspot>
+                                <X>0</X>
+                                <Y>0</Y>
+                        </Hotspot>
+                        <Duration>1000</Duration>
+                </Frames>
+        </Ui2DAnimation>
+        <Ui2DAnimation item="YellowIconBackground">
+                <Cycle>true</Cycle>
+                <Frames>
+                        <Texture>drakah_buffbackgroundcolor.tga</Texture>
+                        <Location>
+                                <X>120</X>
+                                <Y>0</Y>
+                        </Location>
+                        <Size>
+                                <CX>39</CX>
+                                <CY>39</CY>
+                        </Size>
+                        <Hotspot>
+                                <X>0</X>
+                                <Y>0</Y>
+                        </Hotspot>
+                        <Duration>1000</Duration>
+                </Frames>
+        </Ui2DAnimation>
+        <Ui2DAnimation item="GreenIconBackground">
+                <Cycle>true</Cycle>
+                <Frames>
+                        <Texture>drakah_buffbackgroundcolor.tga</Texture>
+                        <Location>
+                                <X>160</X>
+                                <Y>0</Y>
+                        </Location>
+                        <Size>
+                                <CX>39</CX>
+                                <CY>39</CY>
+                        </Size>
+                        <Hotspot>
+                                <X>0</X>
+                                <Y>0</Y>
+                        </Hotspot>
+                        <Duration>1000</Duration>
+                </Frames>
+        </Ui2DAnimation>

@@ -1,2 +1,6 @@
 nektulos.eqg
 bazaar.eqg
+toxxulia.eqg
+lavastorm.eqg
+nektulos.eqg
+mistythicket.eqg

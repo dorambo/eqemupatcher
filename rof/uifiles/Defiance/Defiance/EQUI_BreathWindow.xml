@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<XML ID="EQInterfaceDefinitionLanguage">
+	<Schema xmlns="EverQuestData" xmlns:dt="EverQuestDataTypes" />
+	<TextureInfo item="breathwindowgauge.tga">
+		<Size>
+			<CX>256</CX>
+			<CY>256</CY>
+		</Size>
+	</TextureInfo>
+	<Ui2DAnimation item="Defiance_BreathGaugeBackground">
+		<Cycle>true</Cycle>
+		<Frames>
+			<Texture>breathwindowgauge.tga</Texture>
+			<Location>
+				<X>0</X>
+				<Y>0</Y>
+			</Location>
+			<Size>
+				<CX>178</CX>
+				<CY>36</CY>
+			</Size>
+			<Hotspot>
+				<X>0</X>
+				<Y>0</Y>
+			</Hotspot>
+			<Duration>2000</Duration>
+		</Frames>
+	</Ui2DAnimation>
+	<Ui2DAnimation item="Defiance_BreathGaugeFill">
+		<Cycle>true</Cycle>
+		<Grid>false</Grid>
+		<Frames>
+			<Texture>breathwindowgauge.tga</Texture>
+			<Location>
+				<X>0</X>
+				<Y>36</Y>
+			</Location>
+			<Size>
+				<CX>178</CX>
+				<CY>36</CY>
+			</Size>
+			<Hotspot>
+				<X>0</X>
+				<Y>0</Y>
+			</Hotspot>
+			<Duration>1000</Duration>
+		</Frames>
+	</Ui2DAnimation>
+	<Label item="BREATH_Label">
+		<ScreenID>BREATH_Label</ScreenID>
+		<Font>6</Font>
+		<Text>Breath Remaining</Text>
+		<TextColor>
+			<R>255</R>
+			<G>255</G>
+			<B>255</B>
+		</TextColor>
+		<Size>
+			<CX>412</CX>
+			<CY>24</CY>
+		</Size>
+		<AlignCenter>true</AlignCenter>
+		<Location>
+			<X>-21</X>
+			<Y>2</Y>
+		</Location>
+		<NoWrap>true</NoWrap>
+	</Label>
+	<Label item="BREATH_LabelOverlay1">
+		<ScreenID>BREATH_LabelOverlay1</ScreenID>
+		<Font>6</Font>
+		<Text>Breath Remaining</Text>
+		<TextColor>
+			<R>0</R>
+			<G>0</G>
+			<B>0</B>
+		</TextColor>
+		<Size>
+			<CX>412</CX>
+			<CY>24</CY>
+		</Size>
+		<AlignCenter>true</AlignCenter>
+		<Location>
+			<X>-22</X>
+			<Y>1</Y>
+		</Location>
+		<NoWrap>true</NoWrap>
+	</Label>
+	<Label item="BREATH_LabelOverlay2">
+		<ScreenID>BREATH_LabelOverlay2</ScreenID>
+		<Font>6</Font>
+		<Text>Breath Remaining</Text>
+		<TextColor>
+			<R>0</R>
+			<G>0</G>
+			<B>0</B>
+		</TextColor>
+		<Size>
+			<CX>412</CX>
+			<CY>24</CY>
+		</Size>
+		<AlignCenter>true</AlignCenter>
+		<Location>
+			<X>-20</X>
+			<Y>1</Y>
+		</Location>
+		<NoWrap>true</NoWrap>
+	</Label>
+	<Label item="BREATH_LabelOverlay3">
+		<ScreenID>BREATH_LabelOverlay3</ScreenID>
+		<Font>6</Font>
+		<Text>Breath Remaining</Text>
+		<TextColor>
+			<R>0</R>
+			<G>0</G>
+			<B>0</B>
+		</TextColor>
+		<Size>
+			<CX>412</CX>
+			<CY>24</CY>
+		</Size>
+		<AlignCenter>true</AlignCenter>
+		<Location>
+			<X>-22</X>
+			<Y>3</Y>
+		</Location>
+		<NoWrap>true</NoWrap>
+	</Label>
+	<Label item="BREATH_LabelOverlay4">
+		<ScreenID>BREATH_LabelOverlay4</ScreenID>
+		<Font>6</Font>
+		<Text>Breath Remaining</Text>
+		<TextColor>
+			<R>0</R>
+			<G>0</G>
+			<B>0</B>
+		</TextColor>
+		<Size>
+			<CX>412</CX>
+			<CY>24</CY>
+		</Size>
+		<AlignCenter>true</AlignCenter>
+		<Location>
+			<X>-20</X>
+			<Y>3</Y>
+		</Location>
+		<NoWrap>true</NoWrap>
+	</Label>
+	<Gauge item="BREATH_Gauge">
+		<ScreenID>Gauge</ScreenID>
+		<Font>3</Font>
+		<TextColor>
+			<R>255</R>
+			<G>255</G>
+			<B>255</B>
+			<Alpha>255</Alpha>
+		</TextColor>
+		<RelativePosition>true</RelativePosition>
+		<Location>
+			<X>4</X>
+			<Y>30</Y>
+		</Location>
+		<Size>
+			<CX>361</CX>
+			<CY>16</CY>
+		</Size>
+		<GaugeOffsetY>0</GaugeOffsetY>
+		<TextOffsetX>-550</TextOffsetX>
+		<Style_VScroll>false</Style_VScroll>
+		<Style_HScroll>false</Style_HScroll>
+		<Style_Transparent>false</Style_Transparent>
+		<TooltipReference />
+		<FillTint>
+			<R>0</R>
+			<G>240</G>
+			<B>240</B>
+			<Alpha>255</Alpha>
+		</FillTint>
+		<LinesFillTint>
+			<R>255</R>
+			<G>255</G>
+			<B>255</B>
+		</LinesFillTint>
+		<DrawLinesFill>false</DrawLinesFill>
+		<EQType>8</EQType>
+		<GaugeDrawTemplate>
+			<Background>Defiance_BreathGaugeBackground</Background>
+			<EndCapLeft>A_GaugeEndCapLeft</EndCapLeft>
+			<EndCapRight>A_GaugeEndCapRight</EndCapRight>
+			<Fill>Defiance_BreathGaugeFill</Fill>
+			<LinesFill>A_GaugeLinesFill</LinesFill>
+		</GaugeDrawTemplate>
+	</Gauge>
+	<Screen item="BreathWindow">
+		<RelativePosition>false</RelativePosition>
+		<Location>
+			<X>154</X>
+			<Y>50</Y>
+		</Location>
+		<Size>
+			<CX>370</CX>
+			<CY>49</CY>
+		</Size>
+		<Text>Air Remaining</Text>
+		<Style_VScroll>false</Style_VScroll>
+		<Style_HScroll>false</Style_HScroll>
+		<Style_Transparent>true</Style_Transparent>
+		<TooltipReference>The Casting Meter</TooltipReference>
+		<DrawTemplate>WDT_RoundedNoTitle</DrawTemplate>
+		<Style_Titlebar>false</Style_Titlebar>
+		<Style_Closebox>false</Style_Closebox>
+		<Style_Minimizebox>false</Style_Minimizebox>
+		<Style_Border>false</Style_Border>
+		<Style_Sizable>false</Style_Sizable>
+		<Pieces>BREATH_LabelOverlay1</Pieces>
+		<Pieces>BREATH_LabelOverlay2</Pieces>
+		<Pieces>BREATH_LabelOverlay3</Pieces>
+		<Pieces>BREATH_LabelOverlay4</Pieces>
+		<Pieces>BREATH_Label</Pieces>
+		<Pieces>BREATH_Gauge</Pieces>
+		<Font>6</Font>
+	</Screen>
+</XML>

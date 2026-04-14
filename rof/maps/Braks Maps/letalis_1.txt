@@ -1,0 +1,14 @@
+P 640, 1450, 0, 255, 0, 0, 3, to_Marus_Seru
+P 100, -1350, 0, 255, 0, 0, 3, to_The_Grey
+P 623, 1249, 0, 255, 0, 0, 2, Succor
+P -253, -541, -92, 240, 240, 0, 2, Cave_Entrance
+P -330, -240, -53, 240, 240, 240, 2, Spire_Staircase
+P -399, -460, 201, 127, 64, 0, 2, The_Spire_Lord_(Named)
+P 1275, -824, -1, 0, 0, 0, 2, Drema_Young
+P 249, 318, -93, 127, 64, 0, 2, A_Stonegrabber_of_Growth_(Named
+P -204, 2288, -224, 127, 64, 0, 2, A_Corrupted_Hivemistress_(Named)
+P -264, 2252, -236, 127, 64, 0, 2, A_Greater_Horror_(Named)
+P 444, 67, -4, 127, 64, 0, 2, A_Imploded__Stonegrabber_(Named
+P -549, -195, -56, 127, 64, 0, 2, A_Dusty_Spire_Spirit_(Named)
+P -283, -192, -50, 0, 0, 240, 1, GS:_Book_Binding
+P -33, 1018, 29, 240, 240, 240, 2, Thoughleech_Cave

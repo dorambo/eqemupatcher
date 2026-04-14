@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<XML ID="EQInterfaceDefinitionLanguage">
+       <Schema xmlns="EverQuestData" xmlns:dt="EverQuestDataTypes"/>
+       <!-- Created by Drakah -->
+       <TextureInfo item="drakah_wow_give_icon.tga">
+               <Size>
+                       <CX>64</CX>
+                       <CY>64</CY>
+               </Size>
+       </TextureInfo>
+       <Ui2DAnimation item="drakah_give_icon_anim">
+               <Cycle>false</Cycle>
+               <Frames>
+                       <Texture>drakah_wow_give_icon.tga</Texture>
+                       <Location>
+                               <X>0</X>
+                               <Y>0</Y>
+                       </Location>
+                       <Size>
+                               <CX>64</CX>
+                               <CY>64</CY>
+                       </Size>
+               </Frames>
+       </Ui2DAnimation>
+       <StaticAnimation item="drakah_give_icon">
+               <ScreenID>drakah_give_icon</ScreenID>
+               <RelativePosition>true</RelativePosition>
+               <Location>
+                       <X>1</X>
+                       <Y>6</Y>
+               </Location>
+               <Size>
+                       <CX>32</CX>
+                       <CY>32</CY>
+               </Size>
+               <Animation>drakah_give_icon_anim</Animation>
+       </StaticAnimation>
+       <Label item="GVW_Give_Label">
+               <ScreenID>GVW_Give_Label</ScreenID>
+               <!--
+<Font>3</Font>
+               -->
+               <RelativePosition>true</RelativePosition>
+               <Location>
+                       <X>47</X>
+                       <Y>9</Y>
+               </Location>
+               <Size>
+                       <CX>40</CX>
+                       <CY>18</CY>
+               </Size>
+               <Text>Give</Text>
+               <TextColor>
+                       <R>240</R>
+                       <G>193</G>
+                       <B>4</B>
+               </TextColor>
+               <NoWrap>false</NoWrap>
+               <AlignCenter>false</AlignCenter>
+               <AlignRight>false</AlignRight>
+       </Label>
+       <Label item="GVW_NPCName">
+               <ScreenID>GVW_NPCName</ScreenID>
+               <!--
+<Font>3</Font>
+               -->
+               <RelativePosition>true</RelativePosition>
+               <Location>
+                       <X>10</X>
+                       <Y>45</Y>
+               </Location>
+               <Size>
+                       <CX>95</CX>
+                       <CY>40</CY>
+               </Size>
+               <Text>Blahblahblah's NPC Name</Text>
+               <TextColor>
+                       <R>240</R>
+                       <G>193</G>
+                       <B>4</B>
+               </TextColor>
+               <NoWrap>false</NoWrap>
+               <AlignCenter>true</AlignCenter>
+               <AlignRight>false</AlignRight>
+       </Label>
+       <InvSlot item="GVW_MyItemSlot0">
+               <ScreenID>GVW_MyItemSlot0</ScreenID>
+               <!--
+<Font>3</Font>
+               -->
+               <RelativePosition>true</RelativePosition>
+               <Location>
+                       <X>39</X>
+                       <Y>92</Y>
+               </Location>
+               <Size>
+                       <CX>40</CX>
+                       <CY>40</CY>
+               </Size>
+               <Background>A_RecessedBox</Background>
+               <EQType>3000</EQType>
+               <ItemOffsetX>2</ItemOffsetX>
+               <ItemOffsetY>2</ItemOffsetY>
+       </InvSlot>
+       <InvSlot item="GVW_MyItemSlot1">
+               <ScreenID>GVW_MyItemSlot1</ScreenID>
+               <!--
+<Font>3</Font>
+               -->
+               <RelativePosition>true</RelativePosition>
+               <Location>
+                       <X>39</X>
+                       <Y>132</Y>
+               </Location>
+               <Size>
+                       <CX>40</CX>
+                       <CY>40</CY>
+               </Size>
+               <Background>A_RecessedBox</Background>
+               <EQType>3001</EQType>
+               <ItemOffsetX>2</ItemOffsetX>
+               <ItemOffsetY>2</ItemOffsetY>
+       </InvSlot>
+       <InvSlot item="GVW_MyItemSlot2">
+               <ScreenID>GVW_MyItemSlot2</ScreenID>
+               <!--
+<Font>3</Font>
+               -->
+               <RelativePosition>true</RelativePosition>
+               <Location>
+                       <X>39</X>
+                       <Y>172</Y>
+               </Location>
+               <Size>
+                       <CX>40</CX>
+                       <CY>40</CY>
+               </Size>
+               <Background>A_RecessedBox</Background>
+               <EQType>3002</EQType>
+               <ItemOffsetX>2</ItemOffsetX>
+               <ItemOffsetY>2</ItemOffsetY>
+       </InvSlot>
+       <InvSlot item="GVW_MyItemSlot3">
+               <ScreenID>GVW_MyItemSlot3</ScreenID>
+               <!--
+<Font>3</Font>
+               -->
+               <RelativePosition>true</RelativePosition>
+               <Location>
+                       <X>39</X>
+                       <Y>212</Y>
+               </Location>
+               <Size>
+                       <CX>40</CX>
+                       <CY>40</CY>
+               </Size>
+               <Background>A_RecessedBox</Background>
+               <EQType>3003</EQType>
+               <ItemOffsetX>2</ItemOffsetX>
+               <ItemOffsetY>2</ItemOffsetY>
+       </InvSlot>
+       <Button item="GVW_MyMoney0">
+               <ScreenID>GVW_MyMoney0</ScreenID>
+               <!--
+<Font>3</Font>
+               -->
+               <RelativePosition>true</RelativePosition>
+               <Location>
+                       <X>14</X>
+                       <Y>257</Y>
+               </Location>
+               <Size>
+                       <CX>85</CX>
+                       <CY>24</CY>
+               </Size>
+               <Style_Transparent>false</Style_Transparent>
+               <TooltipReference>Drop coins here</TooltipReference>
+               <Style_Checkbox>false</Style_Checkbox>
+               <RadioGroup/>
+               <Text>60000</Text>
+               <TextColor>
+                       <R>255</R>
+                       <G>255</G>
+                       <B>255</B>
+               </TextColor>
+               <Template>BDT_PlatinumCoin</Template>
+               <DecalOffset>
+                       <X>2</X>
+                       <Y>2</Y>
+               </DecalOffset>
+               <DecalSize>
+                       <CX>18</CX>
+                       <CY>18</CY>
+               </DecalSize>
+       </Button>
+       <Button item="GVW_MyMoney1">
+               <ScreenID>GVW_MyMoney1</ScreenID>
+               <!--
+<Font>3</Font>
+               -->
+               <RelativePosition>true</RelativePosition>
+               <Location>
+                       <X>14</X>
+                       <Y>281</Y>
+               </Location>
+               <Size>
+                       <CX>85</CX>
+                       <CY>24</CY>
+               </Size>
+               <Style_Transparent>false</Style_Transparent>
+               <TooltipReference>Drop coins here</TooltipReference>
+               <Style_Checkbox>false</Style_Checkbox>
+               <!--
+<RadioGroup/>
+               -->
+               <Text>60000</Text>
+               <TextColor>
+                       <R>255</R>
+                       <G>255</G>
+                       <B>255</B>
+               </TextColor>
+               <Template>BDT_GoldCoin</Template>
+               <DecalOffset>
+                       <X>2</X>
+                       <Y>2</Y>
+               </DecalOffset>
+               <DecalSize>
+                       <CX>18</CX>
+                       <CY>18</CY>
+               </DecalSize>
+       </Button>
+       <Button item="GVW_MyMoney2">
+               <ScreenID>GVW_MyMoney2</ScreenID>
+               <!--
+<Font>3</Font>
+               -->
+               <RelativePosition>true</RelativePosition>
+               <Location>
+                       <X>14</X>
+                       <Y>305</Y>
+               </Location>
+               <Size>
+                       <CX>85</CX>
+                       <CY>24</CY>
+               </Size>
+               <Style_Transparent>false</Style_Transparent>
+               <TooltipReference>Drop coins here</TooltipReference>
+               <Style_Checkbox>false</Style_Checkbox>
+               <!--
+<RadioGroup/>
+               -->
+               <Text>60000</Text>
+               <TextColor>
+                       <R>255</R>
+                       <G>255</G>
+                       <B>255</B>
+               </TextColor>
+               <Template>BDT_SilverCoin</Template>
+               <DecalOffset>
+                       <X>2</X>
+                       <Y>2</Y>
+               </DecalOffset>
+               <DecalSize>
+                       <CX>18</CX>
+                       <CY>18</CY>
+               </DecalSize>
+       </Button>
+       <Button item="GVW_MyMoney3">
+               <ScreenID>GVW_MyMoney3</ScreenID>
+               <!--
+<Font>3</Font>
+               -->
+               <RelativePosition>true</RelativePosition>
+               <Location>
+                       <X>14</X>
+                       <Y>329</Y>
+               </Location>
+               <Size>
+                       <CX>85</CX>
+                       <CY>24</CY>
+               </Size>
+               <Style_Transparent>false</Style_Transparent>
+               <TooltipReference>Drop coins here</TooltipReference>
+               <Style_Checkbox>false</Style_Checkbox>
+               <!--
+<RadioGroup/>
+               -->
+               <Text>60000</Text>
+               <TextColor>
+                       <R>255</R>
+                       <G>255</G>
+                       <B>255</B>
+               </TextColor>
+               <Template>BDT_CopperCoin</Template>
+               <DecalOffset>
+                       <X>2</X>
+                       <Y>2</Y>
+               </DecalOffset>
+               <DecalSize>
+                       <CX>18</CX>
+                       <CY>18</CY>
+               </DecalSize>
+       </Button>
+       <Button item="GVW_Give_Button">
+               <ScreenID>GVW_Give_Button</ScreenID>
+               <!--
+<Font>3</Font>
+               -->
+               <RelativePosition>true</RelativePosition>
+               <Location>
+                       <X>14</X>
+                       <Y>360</Y>
+               </Location>
+               <Size>
+                       <CX>85</CX>
+                       <CY>20</CY>
+               </Size>
+               <Style_Transparent>false</Style_Transparent>
+               <!--
+<TooltipReference/>
+               -->
+               <Style_Checkbox>false</Style_Checkbox>
+               <!--
+<RadioGroup/>
+               -->
+               <Text>Give</Text>
+               <TextColor>
+                       <R>255</R>
+                       <G>255</G>
+                       <B>255</B>
+               </TextColor>
+               <Template>BDT_Normal</Template>
+       </Button>
+       <Button item="GVW_Cancel_Button">
+               <ScreenID>GVW_Cancel_Button</ScreenID>
+               <!--
+<Font>3</Font>
+               -->
+               <RelativePosition>true</RelativePosition>
+               <Style_Transparent>false</Style_Transparent>
+               <!--
+<TooltipReference/>
+               -->
+               <Style_Checkbox>false</Style_Checkbox>
+               <!--
+<RadioGroup/>
+               -->
+               <TextColor>
+                       <R>255</R>
+                       <G>255</G>
+                       <B>255</B>
+               </TextColor>
+               <ButtonDrawTemplate>
+                       <Normal>drakah_framework_Close_UP_anim</Normal>
+                       <Pressed>drakah_framework_Close_Down_anim</Pressed>
+                       <Flyby>drakah_framework_Close_Over_anim</Flyby>
+                       <Disabled>drakah_framework_Close_Dis_anim</Disabled>
+               </ButtonDrawTemplate>
+               <AutoStretch>true</AutoStretch>
+               <RightAnchorOffset>0</RightAnchorOffset>
+               <BottomAnchorOffset>28</BottomAnchorOffset>
+               <LeftAnchorOffset>30</LeftAnchorOffset>
+               <TopAnchorOffset>5</TopAnchorOffset>
+               <RightAnchorToLeft>false</RightAnchorToLeft>
+               <LeftAnchorToLeft>false</LeftAnchorToLeft>
+       </Button>
+       <Screen item="GiveWnd">
+               <!--
+<ScreenID/>
+               -->
+               <RelativePosition>false</RelativePosition>
+               <Location>
+                       <X>0</X>
+                       <Y>25</Y>
+               </Location>
+               <Size>
+                       <CX>120</CX>
+                       <CY>400</CY>
+               </Size>
+               <Style_VScroll>false</Style_VScroll>
+               <Style_HScroll>false</Style_HScroll>
+               <Style_Transparent>true</Style_Transparent>
+               <DrawTemplate>drakah_framework_title</DrawTemplate>
+               <Style_Titlebar>false</Style_Titlebar>
+               <Style_Qmarkbox>false</Style_Qmarkbox>
+               <Style_Closebox>false</Style_Closebox>
+               <Style_Minimizebox>false</Style_Minimizebox>
+               <Style_Border>true</Style_Border>
+               <Style_Sizable>false</Style_Sizable>
+               <Pieces>drakah_wow_framework_TLR</Pieces>
+               <Pieces>drakah_wow_framework_BLR</Pieces>
+               <Pieces>drakah_wow_framework_BLR01</Pieces>
+               <Pieces>GVW_Give_Label</Pieces>
+               <Pieces>GVW_NPCName</Pieces>
+               <Pieces>GVW_MyItemSlot0</Pieces>
+               <Pieces>GVW_MyItemSlot1</Pieces>
+               <Pieces>GVW_MyItemSlot2</Pieces>
+               <Pieces>GVW_MyItemSlot3</Pieces>
+               <Pieces>GVW_MyMoney0</Pieces>
+               <Pieces>GVW_MyMoney1</Pieces>
+               <Pieces>GVW_MyMoney2</Pieces>
+               <Pieces>GVW_MyMoney3</Pieces>
+               <Pieces>GVW_Give_Button</Pieces>
+               <Pieces>GVW_Cancel_Button</Pieces>
+               <Pieces>drakah_give_icon</Pieces>
+       </Screen>
+</XML>

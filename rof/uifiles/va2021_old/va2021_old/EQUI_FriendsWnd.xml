@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<XML ID="EQInterfaceDefinitionLanguage">
+  <Composite>
+    <Include>PoTime_Loot.xml</Include>
+  </Composite>
+  <Schema xmlns="EverQuestData" xmlns:dt="EverQuestDataTypes" />
+  <!--Plane of Time Loot-->
+  <!--V0.1-->
+  <!--Created By: Zophim-->
+  <!--Last Updated: August 21, 2003-->
+  <!-- BEGIN Required Information (DO NOT REMOVE) -->
+  <Button item="FW_AddButton">
+    <ScreenID>AddButton</ScreenID>
+  </Button>
+  <Button item="FW_ContactButton">
+    <ScreenID>ContactButton</ScreenID>
+  </Button>
+  <Button item="FW_WhoButton">
+    <ScreenID>WhoButton</ScreenID>
+  </Button>
+  <Button item="FW_DeleteButton">
+    <ScreenID>DeleteButton</ScreenID>
+  </Button>
+  <Editbox item="FW_NameInput">
+    <ScreenID>NameInput</ScreenID>
+  </Editbox>
+  <Editbox item="FW_IgnoreNameInput">
+    <ScreenID>IgnoreNameInput</ScreenID>
+  </Editbox>
+  <Button item="FW_IgnoreAddButton">
+    <ScreenID>IgnoreAddButton</ScreenID>
+  </Button>
+  <Button item="FW_IgnoreDeleteButton">
+    <ScreenID>IgnoreDeleteButton</ScreenID>
+  </Button>
+  <Listbox item="FW_IgnoreList">
+    <ScreenID>IgnoreList</ScreenID>
+    <Columns></Columns>
+  </Listbox>
+  <Listbox item="FW_FriendsList">
+    <ScreenID>FriendsList</ScreenID>
+    <Columns></Columns>
+  </Listbox>
+  <!-- END Required Information -->
+  <!-- BEGIN TabBox -->
+  <TabBox item="FW_Subwindows">
+    <ScreenID>Subwindows</ScreenID>
+    <Font>3</Font>
+    <RelativePosition>true</RelativePosition>
+    <AutoStretch>true</AutoStretch>
+    <TopAnchorToTop>true</TopAnchorToTop>
+    <BottomAnchorToTop>false</BottomAnchorToTop>
+    <LeftAnchorToLeft>true</LeftAnchorToLeft>
+    <RightAnchorToLeft>false</RightAnchorToLeft>
+    <TabBorderTemplate>FT_DefTabBorder</TabBorderTemplate>
+    <PageBorderTemplate>FT_DefPageBorder</PageBorderTemplate>
+    <!--*****BEGIN EDITING HERE*****-->
+    <!--To renove a tab just comment out the page below.-->
+    <!--To add a tab just remove the comments from the page below.-->
+    <Pages>Actions_TimeTier1Page</Pages>
+    <Pages>Actions_TimeTier2Page</Pages>
+    <Pages>Actions_TimeTier3Page</Pages>
+    <Pages>Actions_SaryrnPage</Pages>
+    <Pages>Actions_TerrisThulePage</Pages>
+    <Pages>Actions_TallonZekPage</Pages>
+    <Pages>Actions_VallonZekPage</Pages>
+    <Pages>Actions_InnoruukPage</Pages>
+    <Pages>Actions_CazicThulePage</Pages>
+    <Pages>Actions_RallosZekPage</Pages>
+    <Pages>Actions_BertoxxulousPage</Pages>
+    <Pages>Actions_QuarmPage</Pages>
+    <!--*****END EDITING*****-->
+  </TabBox>
+  <!-- BEGIN Friend Window -->
+  <Screen item="FriendsWindow">
+    <RelativePosition>false</RelativePosition>
+    <Location>
+      <X>196</X>
+      <Y>50</Y>
+    </Location>
+    <Size>
+      <CX>180</CX>
+      <CY>260</CY>
+    </Size>
+    <Style_VScroll>false</Style_VScroll>
+    <Style_HScroll>false</Style_HScroll>
+    <Style_Transparent>false</Style_Transparent>
+    <Text>Plane of Time Loot</Text>
+    <DrawTemplate>WDT_Rounded</DrawTemplate>
+    <Style_Titlebar>true</Style_Titlebar>
+    <Style_Closebox>true</Style_Closebox>
+    <Style_Minimizebox>true</Style_Minimizebox>
+    <Style_Border>true</Style_Border>
+    <Style_Sizable>true</Style_Sizable>
+    <Pieces>FW_Subwindows</Pieces>
+    <!-- BEGIN Required Information (DO NOT REMOVE) -->
+    <Pieces>FW_IgnoreList</Pieces>
+    <Pieces>FW_IgnoreAddButton</Pieces>
+    <Pieces>FW_IgnoreNameInput</Pieces>
+    <Pieces>FW_IgnoreDeleteButton</Pieces>
+    <Pieces>FW_FriendsList</Pieces>
+    <Pieces>FW_AddButton</Pieces>
+    <Pieces>FW_NameInput</Pieces>
+    <Pieces>FW_DeleteButton</Pieces>
+    <Pieces>FW_ContactButton</Pieces>
+    <Pieces>FW_WhoButton</Pieces>
+    <!-- END Required Information -->
+  </Screen>
+  <!-- END Friend Window -->
+</XML>

@@ -840,3 +840,4 @@
 2,0,TFFFE,cotfequip.eqg,Loading Weapons
 2,0,TFFFE,halloween_pumpkinhead.eqg,Loading Weapons
 2,0,TFFFE,halloweenhelms.eqg,Loading Weapons
+4,0,TFFFC,eae.eqg,Loading Solusek Ro
