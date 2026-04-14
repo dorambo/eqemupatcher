@@ -4,3 +4,4 @@ toxxulia.eqg
 lavastorm.eqg
 nektulos.eqg
 mistythicket.eqg
+RebuildEQ_UI
