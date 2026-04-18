@@ -5,3 +5,4 @@ lavastorm.eqg
 nektulos.eqg
 mistythicket.eqg
 highpasshold.eqg
+commonlands.eqg
