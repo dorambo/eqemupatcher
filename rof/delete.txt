@@ -6,3 +6,4 @@ nektulos.eqg
 mistythicket.eqg
 highpasshold.eqg
 commonlands.eqg
+uifiles\default\loadscreens\
