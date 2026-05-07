@@ -6,4 +6,15 @@ nektulos.eqg
 mistythicket.eqg
 highpasshold.eqg
 commonlands.eqg
-uifiles\default\loadscreens\
+uifiles\default\loadscreens\loadscreen44.jpg
+uifiles\default\loadscreens\loadscreen45.jpg
+uifiles\default\loadscreens\loadscreen46.jpg
+uifiles\default\loadscreens\loadscreen47.jpg
+uifiles\default\loadscreens\loadscreen48.jpg
+uifiles\default\loadscreens\loadscreen49.jpg
+uifiles\default\loadscreens\loadscreen50.jpg
+uifiles\default\loadscreens\loadscreen51.jpg
+uifiles\default\loadscreens\loadscreen52.jpg
+uifiles\default\loadscreens\loadscreen53.jpg
+uifiles\default\loadscreens\loadscreen54.jpg
+uifiles\default\loadscreens\loadscreen55.jpg
