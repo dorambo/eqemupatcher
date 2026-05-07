@@ -1,4 +1,3 @@
-eqemupatcher.png
 nektulos.eqg
 bazaar.eqg
 toxxulia.eqg
