@@ -1,6 +1,5 @@
 northro.eqg
 southro.eqg
-nektulos.eqg
 bazaar.eqg
 toxxulia.eqg
 lavastorm.eqg
