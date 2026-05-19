@@ -271,9 +271,20 @@ namespace EQEmu_Patcher
             var path = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\eqemupatcher.png";
             if (File.Exists(path))
             {
-                splashLogo.Load(path);
+                LoadSplashLogo(path);
             }
             cts.Cancel();
+        }
+
+        private void LoadSplashLogo(string path)
+        {
+            using (var stream = File.OpenRead(path))
+            using (var image = Image.FromStream(stream))
+            {
+                var previous = splashLogo.Image;
+                splashLogo.Image = new Bitmap(image);
+                previous?.Dispose();
+            }
         }
 
         private void detectClientVersion()
@@ -516,7 +527,7 @@ namespace EQEmu_Patcher
                 var path = Path.GetDirectoryName(Application.ExecutablePath)+"\\"+entry.name.Replace("/", "\\");
                 if (!UtilityLibrary.IsPathChild(path))
                 {
-                    StatusLibrary.Log("Path " + path + " might be outside of your Everquest directory. Skipping download to this location.");
+                    StatusLibrary.Log("Path " + entry.name + " might be outside of your Everquest directory. Skipping download to this location.");
                     continue;
                 }
 
