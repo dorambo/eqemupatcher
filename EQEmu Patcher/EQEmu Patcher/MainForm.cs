@@ -343,11 +343,22 @@ namespace EQEmu_Patcher
                 }
                 if (currentVersion == VersionTypes.Unknown)
                 {
-                    if (MessageBox.Show("Unable to recognize the Everquest client in this directory, open a web page to report to devs?", "Visit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
+                    var eqgamePath = UtilityLibrary.GetEverquestExecutablePath(AppDomain.CurrentDomain.BaseDirectory);
+                    if (UtilityLibrary.IsTheHeroChroniclesRoF2Executable(eqgamePath))
+                    {
+                        currentVersion = VersionTypes.Rain_Of_Fear_2;
+                        splashLogo.Image = Properties.Resources.rof;
+                        StatusLibrary.Log($"Recognized The Hero Chronicles RoF2 client by AA slider byte signature: {hash}");
+                    }
+                    else if (MessageBox.Show("Unable to recognize the Everquest client in this directory. Hash: " + hash + "\n\nOpen a web page to report to devs?", "Visit", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
                     {
                         System.Diagnostics.Process.Start("https://github.com/Xackery/eqemupatcher/issues/new?title=A+New+EQClient+Found&body=Hi+I+Found+A+New+Client!+Hash:+" + hash);
                     }
-                    StatusLibrary.Log($"Unable to recognize the Everquest client in this directory, send to developers: {hash}");
+
+                    if (currentVersion == VersionTypes.Unknown)
+                    {
+                        StatusLibrary.Log($"Unable to recognize the Everquest client in this directory, send to developers: {hash}");
+                    }
                 }
                 else
                 {

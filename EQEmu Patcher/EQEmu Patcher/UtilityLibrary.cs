@@ -127,6 +127,64 @@ namespace EQEmu_Patcher
             return UtilityLibrary.GetMD5(files[0].FullName);
         }
 
+        public static string GetEverquestExecutablePath(string path)
+        {
+            var di = new System.IO.DirectoryInfo(path);
+            var files = di.GetFiles("eqgame.exe");
+            if (files == null || files.Length == 0)
+            {
+                return "";
+            }
+
+            return files[0].FullName;
+        }
+
+        public static bool IsTheHeroChroniclesRoF2Executable(string filename)
+        {
+            if (filename == "" || !File.Exists(filename))
+            {
+                return false;
+            }
+
+            byte[] bytes = File.ReadAllBytes(filename);
+            return MatchesAASliderGate(bytes, 0x2095D0) && MatchesAASliderGate(bytes, 0x20962B);
+        }
+
+        private static bool MatchesAASliderGate(byte[] bytes, int offset)
+        {
+            if (bytes.Length <= offset + 14)
+            {
+                return false;
+            }
+
+            if (
+                bytes[offset] != 0x80 ||
+                bytes[offset + 1] != 0x7C ||
+                bytes[offset + 2] != 0x24 ||
+                bytes[offset + 3] != 0x17
+            )
+            {
+                return false;
+            }
+
+            if (bytes[offset + 4] != 0x33 && bytes[offset + 4] != 0x01)
+            {
+                return false;
+            }
+
+            return (
+                bytes[offset + 5] == 0x72 &&
+                bytes[offset + 6] == 0x1F &&
+                bytes[offset + 7] == 0x80 &&
+                bytes[offset + 8] == 0x3D &&
+                bytes[offset + 9] == 0xC2 &&
+                bytes[offset + 10] == 0x09 &&
+                bytes[offset + 11] == 0xDE &&
+                bytes[offset + 12] == 0x00 &&
+                bytes[offset + 13] == 0x00
+            );
+        }
+
         // Returns true only if the path is a relative and does not contain ..
         public static bool IsPathChild(string path)
         {
