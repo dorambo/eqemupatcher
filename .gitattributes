@@ -10,6 +10,7 @@ rof/** -text
 *.eff binary
 *.xml binary
 *.dll binary
+*.exe binary
 *.s3d binary
 *.txc binary
 *.xmi binary
