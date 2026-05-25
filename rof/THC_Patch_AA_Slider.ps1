@@ -104,6 +104,12 @@ Apply-PatchBytes `
     -Expected ([byte[]](0x8D, 0x49, 0x04, 0xE8, 0xF6)) `
     -Patched ([byte[]](0xE9, 0x46, 0x01, 0x00, 0x00))
 
+Apply-PatchBytes `
+    -Name "Combat abilities window command route" `
+    -Offset 0xD7703 `
+    -Expected ([byte[]](0x81, 0xC7, 0x9B, 0xFE, 0xFF)) `
+    -Patched ([byte[]](0xE9, 0x9D, 0x01, 0x00, 0x00))
+
 if ($changed) {
     [IO.File]::WriteAllBytes($eqgame, $bytes)
     Write-Host "The Hero Chronicles client patches were applied. Backup: eqgame.exe.bak-thc-aa-slider"
