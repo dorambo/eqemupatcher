@@ -320,6 +320,7 @@ namespace EQEmu_Patcher
                         splashLogo.Image = Properties.Resources.rof;
                         break;
                     case "240C80800112ADA825C146D7349CE85B":
+                    case "3719F43C31D80993E019A5C5BC7459BE": // The Hero Chronicles RoF2 AA slider level 1 patch
                     case "A057A23F030BAA1C4910323B131407105ACAD14D": //This is a custom ROF2 from a torrent download
                     case "389709EC0E456C3DAE881A61218AAB3F": // This is a 4gb patched eqgame
                     case "6574AC667D4C522D21A47F4D00920CC2": // Unknown origin, issue #29
