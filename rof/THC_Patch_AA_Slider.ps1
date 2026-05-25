@@ -100,6 +100,100 @@ else {
     Write-Host "The Hero Chronicles client patches are already applied."
 }
 
+function Set-UiSectionDefaults {
+    param(
+        [string]$Path,
+        [string]$Section,
+        [string[]]$Defaults
+    )
+
+    $lines = New-Object System.Collections.Generic.List[string]
+    $lines.AddRange([string[]](Get-Content -LiteralPath $Path))
+
+    $start = -1
+    for ($i = 0; $i -lt $lines.Count; $i++) {
+        if ($lines[$i] -ieq "[$Section]") {
+            $start = $i
+            break
+        }
+    }
+
+    if ($start -lt 0) {
+        if ($lines.Count -gt 0 -and $lines[$lines.Count - 1].Trim().Length -ne 0) {
+            $lines.Add("")
+        }
+
+        $lines.Add("[$Section]")
+        foreach ($entry in $Defaults) {
+            $lines.Add($entry)
+        }
+
+        Set-Content -LiteralPath $Path -Value $lines
+        return
+    }
+
+    $end = $lines.Count
+    for ($i = $start + 1; $i -lt $lines.Count; $i++) {
+        if ($lines[$i].StartsWith("[") -and $lines[$i].EndsWith("]")) {
+            $end = $i
+            break
+        }
+    }
+
+    $keys = @{}
+    foreach ($entry in $Defaults) {
+        $key = $entry.Split("=", 2)[0]
+        $keys[$key.ToLowerInvariant()] = $true
+    }
+
+    for ($i = $end - 1; $i -gt $start; $i--) {
+        $line = $lines[$i]
+        $equals = $line.IndexOf("=")
+        if ($equals -gt 0) {
+            $key = $line.Substring(0, $equals).ToLowerInvariant()
+            if ($keys.ContainsKey($key)) {
+                $lines.RemoveAt($i)
+            }
+        }
+    }
+
+    [array]::Reverse($Defaults)
+    foreach ($entry in $Defaults) {
+        $lines.Insert($start + 1, $entry)
+    }
+
+    Set-Content -LiteralPath $Path -Value $lines
+}
+
+$ui_files = Get-ChildItem -LiteralPath $root -Filter "UI_*.ini" -File -ErrorAction SilentlyContinue
+foreach ($ui_file in $ui_files) {
+    Set-UiSectionDefaults -Path $ui_file.FullName -Section "CombatAbilityWnd" -Defaults @(
+        "Show=0",
+        "INIVersion=1",
+        "XPosWindowed=147",
+        "YPosWindowed=370",
+        "RestoreXPosWindowed=50",
+        "RestoreYPosWindowed=50",
+        "MinimizedWindowed=0"
+    )
+
+    Set-UiSectionDefaults -Path $ui_file.FullName -Section "AuraWindow" -Defaults @(
+        "Show=0",
+        "INIVersion=1",
+        "XPosWindowed=731",
+        "YPosWindowed=137",
+        "WidthWindowed=156",
+        "HeightWindowed=87",
+        "RestoreXPosWindowed=731",
+        "RestoreYPosWindowed=137",
+        "MinimizedWindowed=0"
+    )
+}
+
+if ($ui_files.Count -gt 0) {
+    Write-Host "The Hero Chronicles UI window positions were refreshed for Aura and Combat Abilities."
+}
+
 if (!$NoLaunch) {
     Start-Process -FilePath $eqgame -ArgumentList "patchme" -WorkingDirectory $root
 }
