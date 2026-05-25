@@ -90,11 +90,26 @@ namespace EQEmu_Patcher
 
         public static System.Diagnostics.Process StartEverquest()
         {
+            var workingDirectory = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
+            var launcherPath = System.IO.Path.Combine(workingDirectory, "THC_Launcher.cmd");
+
+            if (File.Exists(launcherPath))
+            {
+                var launcherStartInfo = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = launcherPath,
+                    WorkingDirectory = workingDirectory,
+                    UseShellExecute = true
+                };
+
+                return System.Diagnostics.Process.Start(launcherStartInfo);
+            }
+
             var startInfo = new System.Diagnostics.ProcessStartInfo
             {
-                FileName = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\eqgame.exe",
+                FileName = System.IO.Path.Combine(workingDirectory, "eqgame.exe"),
                 Arguments = "patchme",
-                WorkingDirectory = System.IO.Path.GetDirectoryName(Application.ExecutablePath)
+                WorkingDirectory = workingDirectory
             };
 
             return System.Diagnostics.Process.Start(startInfo);
