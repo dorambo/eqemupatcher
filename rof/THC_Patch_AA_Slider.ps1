@@ -92,6 +92,12 @@ Apply-PatchBytes `
     -Expected ([byte[]](0x0F, 0x85, 0x12, 0x01, 0x00, 0x00)) `
     -Patched ([byte[]](0x90, 0x90, 0x90, 0x90, 0x90, 0x90))
 
+Apply-PatchBytes `
+    -Name "Bard melody spell level gate" `
+    -Offset 0xF5079 `
+    -Expected ([byte[]](0x0F, 0xB6, 0x80, 0x74, 0x33, 0x00, 0x00)) `
+    -Patched ([byte[]](0xB8, 0x08, 0x00, 0x00, 0x00, 0x90, 0x90))
+
 if ($changed) {
     [IO.File]::WriteAllBytes($eqgame, $bytes)
     Write-Host "The Hero Chronicles client patches were applied. Backup: eqgame.exe.bak-thc-aa-slider"
