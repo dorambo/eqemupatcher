@@ -58,6 +58,49 @@ function Apply-PatchBytes {
     Write-Host "$Name patch was applied."
 }
 
+function Restore-PatchBytes {
+    param(
+        [string]$Name,
+        [int]$Offset,
+        [byte[]]$BadPatched,
+        [byte[]]$Original
+    )
+
+    if ($Offset + $Original.Length -gt $bytes.Length) {
+        throw "This eqgame.exe is not the expected RoF2 client. $Name restore was not applied."
+    }
+
+    $already_original = $true
+    for ($i = 0; $i -lt $Original.Length; $i++) {
+        if ($bytes[$Offset + $i] -ne $Original[$i]) {
+            $already_original = $false
+            break
+        }
+    }
+
+    if ($already_original) {
+        Write-Host "$Name restore is already applied."
+        return
+    }
+
+    for ($i = 0; $i -lt $BadPatched.Length; $i++) {
+        if ($bytes[$Offset + $i] -ne $BadPatched[$i]) {
+            throw ("Unsupported eqgame.exe bytes for {0} at 0x{1:X}. Restore was not applied." -f $Name, $Offset)
+        }
+    }
+
+    if (!(Test-Path -LiteralPath $backup)) {
+        Copy-Item -LiteralPath $eqgame -Destination $backup
+    }
+
+    for ($i = 0; $i -lt $Original.Length; $i++) {
+        $bytes[$Offset + $i] = $Original[$i]
+    }
+
+    $script:changed = $true
+    Write-Host "$Name restore was applied."
+}
+
 foreach ($offset in @(0x2095D4, 0x20962F)) {
     if ($offset -ge $bytes.Length) {
         throw "This eqgame.exe is not the expected RoF2 client. AA slider patch was not applied."
@@ -98,18 +141,18 @@ Apply-PatchBytes `
     -Expected ([byte[]](0x0F, 0xB6, 0x80, 0x74, 0x33, 0x00, 0x00)) `
     -Patched ([byte[]](0xB8, 0x08, 0x00, 0x00, 0x00, 0x90, 0x90))
 
-Apply-PatchBytes `
-    -Name "Prestige spell client level lookup" `
+Restore-PatchBytes `
+    -Name "Bad prestige spell client level lookup" `
     -Offset 0xAEB00 `
-    -Expected ([byte[]](
-        0x8B, 0x44, 0x24, 0x04, 0x8D, 0x50, 0xFF, 0x83, 0xFA, 0x22, 0x77, 0x10, 0x83, 0xF8, 0x24, 0x72,
-        0x01, 0xCC, 0x8A, 0x84, 0x01, 0x46, 0x02, 0x00, 0x00, 0xC2, 0x04, 0x00, 0x8A, 0x81, 0x47, 0x02,
-        0x00, 0x00, 0xC2, 0x04, 0x00
-    )) `
-    -Patched ([byte[]](
+    -BadPatched ([byte[]](
         0x53, 0xBA, 0x01, 0x00, 0x00, 0x00, 0xB3, 0xFF, 0x8A, 0x84, 0x11, 0x46, 0x02, 0x00, 0x00, 0x3C,
         0xFF, 0x73, 0x04, 0x3A, 0xC3, 0x73, 0x02, 0x8A, 0xD8, 0x42, 0x83, 0xFA, 0x11, 0x7C, 0xE9, 0x8A,
         0xC3, 0x5B, 0xC2, 0x04, 0x00
+    )) `
+    -Original ([byte[]](
+        0x8B, 0x44, 0x24, 0x04, 0x8D, 0x50, 0xFF, 0x83, 0xFA, 0x22, 0x77, 0x10, 0x83, 0xF8, 0x24, 0x72,
+        0x01, 0xCC, 0x8A, 0x84, 0x01, 0x46, 0x02, 0x00, 0x00, 0xC2, 0x04, 0x00, 0x8A, 0x81, 0x47, 0x02,
+        0x00, 0x00, 0xC2, 0x04, 0x00
     ))
 
 Apply-PatchBytes `
