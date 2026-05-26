@@ -243,7 +243,7 @@ function Set-UiSectionDefaults {
 $ui_files = Get-ChildItem -LiteralPath $root -Filter "UI_*.ini" -File -ErrorAction SilentlyContinue
 foreach ($ui_file in $ui_files) {
     Set-UiSectionDefaults -Path $ui_file.FullName -Section "CombatAbilityWnd" -Defaults @(
-        "Show=0",
+        "Show=1",
         "INIVersion=1",
         "XPosWindowed=147",
         "YPosWindowed=370",
