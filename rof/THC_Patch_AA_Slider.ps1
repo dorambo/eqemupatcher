@@ -218,11 +218,11 @@ else {
     Write-Host "Character select selected-name prestige path patch was applied."
 }
 
-Apply-PatchBytes `
+Restore-PatchBytes `
     -Name "Character select selected-name class argument suppress" `
     -Offset 0x18D954 `
-    -Expected ([byte[]](0x50)) `
-    -Patched ([byte[]](0x90))
+    -BadPatched ([byte[]](0x90)) `
+    -Original ([byte[]](0x50))
 
 Apply-PatchBytes `
     -Name "Character select selected-name level argument suppress" `
