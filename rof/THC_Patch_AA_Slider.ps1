@@ -171,10 +171,11 @@ $character_select_name_offset = 0x5D5998
 $character_select_name_original = [byte[]](0x25, 0x73, 0x20, 0x5B, 0x25, 0x64, 0x20, 0x25, 0x73, 0x5D)
 $character_select_name_old_patch = [byte[]](0x25, 0x73, 0x20, 0x5B, 0x25, 0x64, 0x5D, 0x20, 0x20, 0x20)
 $character_select_name_unterminated_patch = [byte[]](0x25, 0x73, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20)
-$character_select_name_new_patch = [byte[]](0x25, 0x73, 0x00, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20)
+$character_select_name_null_patch = [byte[]](0x25, 0x73, 0x00, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20)
+$character_select_name_new_patch = [byte[]](0x25, 0x73, 0x0A, 0x25, 0x73, 0x00, 0x20, 0x20, 0x20, 0x20)
 
 $character_select_name_matches = $false
-foreach ($allowed in @($character_select_name_original, $character_select_name_old_patch, $character_select_name_unterminated_patch, $character_select_name_new_patch)) {
+foreach ($allowed in @($character_select_name_original, $character_select_name_old_patch, $character_select_name_unterminated_patch, $character_select_name_null_patch, $character_select_name_new_patch)) {
     $same = $true
     for ($i = 0; $i -lt $allowed.Length; $i++) {
         if ($bytes[$character_select_name_offset + $i] -ne $allowed[$i]) {
@@ -216,6 +217,24 @@ else {
     $changed = $true
     Write-Host "Character select selected-name prestige path patch was applied."
 }
+
+Apply-PatchBytes `
+    -Name "Character select selected-name class argument suppress" `
+    -Offset 0x18D954 `
+    -Expected ([byte[]](0x50)) `
+    -Patched ([byte[]](0x90))
+
+Apply-PatchBytes `
+    -Name "Character select selected-name level argument suppress" `
+    -Offset 0x18D95F `
+    -Expected ([byte[]](0x50)) `
+    -Patched ([byte[]](0x90))
+
+Apply-PatchBytes `
+    -Name "Character select selected-name stack cleanup" `
+    -Offset 0x18D973 `
+    -Expected ([byte[]](0x83, 0xC4, 0x18)) `
+    -Patched ([byte[]](0x83, 0xC4, 0x10))
 
 Apply-PatchBytes `
     -Name "Character select detail line zone-only formatter" `
