@@ -167,11 +167,72 @@ Apply-PatchBytes `
     -Expected ([byte[]](0x81, 0xC7, 0x9B, 0xFE, 0xFF)) `
     -Patched ([byte[]](0xE9, 0x9D, 0x01, 0x00, 0x00))
 
+$character_select_name_offset = 0x5D5998
+$character_select_name_original = [byte[]](0x25, 0x73, 0x20, 0x5B, 0x25, 0x64, 0x20, 0x25, 0x73, 0x5D)
+$character_select_name_old_patch = [byte[]](0x25, 0x73, 0x20, 0x5B, 0x25, 0x64, 0x5D, 0x20, 0x20, 0x20)
+$character_select_name_new_patch = [byte[]](0x25, 0x73, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20)
+
+$character_select_name_matches = $false
+foreach ($allowed in @($character_select_name_original, $character_select_name_old_patch, $character_select_name_new_patch)) {
+    $same = $true
+    for ($i = 0; $i -lt $allowed.Length; $i++) {
+        if ($bytes[$character_select_name_offset + $i] -ne $allowed[$i]) {
+            $same = $false
+            break
+        }
+    }
+
+    if ($same) {
+        $character_select_name_matches = $true
+        break
+    }
+}
+
+if (!$character_select_name_matches) {
+    throw ("Unsupported eqgame.exe bytes for Character select selected-name prestige path at 0x{0:X}. Patch was not applied." -f $character_select_name_offset)
+}
+
+$character_select_name_already_patched = $true
+for ($i = 0; $i -lt $character_select_name_new_patch.Length; $i++) {
+    if ($bytes[$character_select_name_offset + $i] -ne $character_select_name_new_patch[$i]) {
+        $character_select_name_already_patched = $false
+        break
+    }
+}
+
+if ($character_select_name_already_patched) {
+    Write-Host "Character select selected-name prestige path patch is already applied."
+}
+else {
+    if (!(Test-Path -LiteralPath $backup)) {
+        Copy-Item -LiteralPath $eqgame -Destination $backup
+    }
+
+    for ($i = 0; $i -lt $character_select_name_new_patch.Length; $i++) {
+        $bytes[$character_select_name_offset + $i] = $character_select_name_new_patch[$i]
+    }
+
+    $changed = $true
+    Write-Host "Character select selected-name prestige path patch was applied."
+}
+
 Apply-PatchBytes `
-    -Name "Character select selected-name class suffix" `
-    -Offset 0x5D5998 `
-    -Expected ([byte[]](0x25, 0x73, 0x20, 0x5B, 0x25, 0x64, 0x20, 0x25, 0x73, 0x5D)) `
-    -Patched ([byte[]](0x25, 0x73, 0x20, 0x5B, 0x25, 0x64, 0x5D, 0x20, 0x20, 0x20))
+    -Name "Character select detail line zone-only formatter" `
+    -Offset 0x5C8F90 `
+    -Expected ([byte[]](0x25, 0x73, 0x3C, 0x42, 0x52, 0x3E, 0x25, 0x73)) `
+    -Patched ([byte[]](0x25, 0x73, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20))
+
+Apply-PatchBytes `
+    -Name "Character select detail line first zone argument" `
+    -Offset 0xB70F5 `
+    -Expected ([byte[]](0x8D, 0x4C, 0x24, 0x38, 0x51)) `
+    -Patched ([byte[]](0x50, 0x90, 0x90, 0x90, 0x90))
+
+Apply-PatchBytes `
+    -Name "Character select detail line second zone argument" `
+    -Offset 0xB71E4 `
+    -Expected ([byte[]](0x8D, 0x4C, 0x24, 0x38, 0x51)) `
+    -Patched ([byte[]](0x50, 0x90, 0x90, 0x90, 0x90))
 
 if ($changed) {
     [IO.File]::WriteAllBytes($eqgame, $bytes)
