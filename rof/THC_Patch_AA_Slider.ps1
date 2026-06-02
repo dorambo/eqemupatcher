@@ -170,10 +170,11 @@ Apply-PatchBytes `
 $character_select_name_offset = 0x5D5998
 $character_select_name_original = [byte[]](0x25, 0x73, 0x20, 0x5B, 0x25, 0x64, 0x20, 0x25, 0x73, 0x5D)
 $character_select_name_old_patch = [byte[]](0x25, 0x73, 0x20, 0x5B, 0x25, 0x64, 0x5D, 0x20, 0x20, 0x20)
-$character_select_name_new_patch = [byte[]](0x25, 0x73, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20)
+$character_select_name_unterminated_patch = [byte[]](0x25, 0x73, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20)
+$character_select_name_new_patch = [byte[]](0x25, 0x73, 0x00, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20, 0x20)
 
 $character_select_name_matches = $false
-foreach ($allowed in @($character_select_name_original, $character_select_name_old_patch, $character_select_name_new_patch)) {
+foreach ($allowed in @($character_select_name_original, $character_select_name_old_patch, $character_select_name_unterminated_patch, $character_select_name_new_patch)) {
     $same = $true
     for ($i = 0; $i -lt $allowed.Length; $i++) {
         if ($bytes[$character_select_name_offset + $i] -ne $allowed[$i]) {
