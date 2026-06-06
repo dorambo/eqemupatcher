@@ -45,8 +45,58 @@ function Ensure-WindowVisible {
     }
 }
 
+function Ensure-ClientDefaultsKey {
+    param(
+        [string]$Path,
+        [string]$Key,
+        [string]$Value
+    )
+
+    if (!(Test-Path -LiteralPath $Path)) {
+        return
+    }
+
+    $content = Get-Content -LiteralPath $Path -Raw
+    $original = $content
+    $pattern = "(?ms)(^\[Defaults\]\s*.*?)(?=^\[|\z)"
+
+    if ($content -match $pattern) {
+        $content = [regex]::Replace(
+            $content,
+            $pattern,
+            {
+                param($match)
+                $block = $match.Groups[1].Value
+                if ($block -match "(?m)^$([regex]::Escape($Key))=.*$") {
+                    return [regex]::Replace(
+                        $block,
+                        "(?m)^$([regex]::Escape($Key))=.*$",
+                        "$Key=$Value",
+                        1
+                    )
+                }
+
+                return $block.TrimEnd() + "`r`n$Key=$Value`r`n"
+            }
+        )
+    } elseif ($content -match "(?m)^$([regex]::Escape($Key))=.*$") {
+        $content = [regex]::Replace(
+            $content,
+            "(?m)^$([regex]::Escape($Key))=.*$",
+            "$Key=$Value",
+            1
+        )
+    }
+
+    if ($content -ne $original) {
+        Set-Content -LiteralPath $Path -Value $content -NoNewline
+        Write-Host "Forced $Key=$Value in $([IO.Path]::GetFileName($Path))."
+    }
+}
+
 Ensure-WindowVisible -Path (Join-Path $root "defaults.ini") -WindowName "CastSpellWnd"
 Ensure-WindowVisible -Path (Join-Path $root "defaults.ini") -WindowName "SpellBookWnd"
+Ensure-ClientDefaultsKey -Path (Join-Path $root "eqclient.ini") -Key "HideSpellsWin" -Value "FALSE"
 
 Get-ChildItem -LiteralPath $root -File -Filter "UI_*_The Hero Chronicles.ini" | ForEach-Object {
     Ensure-WindowVisible -Path $_.FullName -WindowName "CastSpellWnd"
