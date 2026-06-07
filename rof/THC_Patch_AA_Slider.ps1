@@ -374,26 +374,6 @@ function Set-UiSectionDefaults {
 
 $ui_files = Get-ChildItem -LiteralPath $root -Filter "UI_*.ini" -File -ErrorAction SilentlyContinue
 foreach ($ui_file in $ui_files) {
-    Set-UiSectionDefaults -Path $ui_file.FullName -Section "CastSpellWnd" -Defaults @(
-        "Show=1",
-        "INIVersion=1",
-        "XPosWindowed=300",
-        "YPosWindowed=300",
-        "RestoreXPosWindowed=300",
-        "RestoreYPosWindowed=300",
-        "MinimizedWindowed=0"
-    )
-
-    Set-UiSectionDefaults -Path $ui_file.FullName -Section "SpellBookWnd" -Defaults @(
-        "Show=1",
-        "INIVersion=1",
-        "XPosWindowed=350",
-        "YPosWindowed=350",
-        "RestoreXPosWindowed=350",
-        "RestoreYPosWindowed=350",
-        "MinimizedWindowed=0"
-    )
-
     Set-UiSectionDefaults -Path $ui_file.FullName -Section "CombatAbilityWnd" -Defaults @(
         "Show=1",
         "INIVersion=1",
@@ -418,7 +398,7 @@ foreach ($ui_file in $ui_files) {
 }
 
 if ($ui_files.Count -gt 0) {
-    Write-Host "The Hero Chronicles UI window positions were refreshed for Aura, Combat Abilities, Cast Spell, and Spell Book."
+    Write-Host "The Hero Chronicles UI window positions were refreshed for Aura and Combat Abilities."
 }
 
 if (!$NoLaunch) {
