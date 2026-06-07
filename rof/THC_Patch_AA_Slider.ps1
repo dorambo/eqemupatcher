@@ -8,51 +8,6 @@ $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $eqgame = Join-Path $root "eqgame.exe"
 $backup = Join-Path $root "eqgame.exe.bak-thc-aa-slider"
 
-function Ensure-WindowVisible {
-    param(
-        [string]$Path,
-        [string]$WindowName
-    )
-
-    if (!(Test-Path -LiteralPath $Path)) {
-        return
-    }
-
-    $content = Get-Content -LiteralPath $Path -Raw
-    $original = $content
-
-    if ($content -match "(?ms)^\[$([regex]::Escape($WindowName))\]\s*.*?$") {
-        $content = [regex]::Replace(
-            $content,
-            "(?ms)(^\[$([regex]::Escape($WindowName))\]\s*.*?)(?=^\[|\z)",
-            {
-                param($match)
-                $block = $match.Groups[1].Value
-                if ($block -match '(?m)^Show=1$') {
-                    return $block
-                }
-                if ($block -match '(?m)^Show=\d+$') {
-                    return [regex]::Replace($block, '(?m)^Show=\d+$', 'Show=1', 1)
-                }
-                return $block.TrimEnd() + "`r`nShow=1`r`n"
-            }
-        )
-    }
-
-    if ($content -ne $original) {
-        Set-Content -LiteralPath $Path -Value $content -NoNewline
-        Write-Host "Forced $WindowName visible in $([IO.Path]::GetFileName($Path))."
-    }
-}
-
-Ensure-WindowVisible -Path (Join-Path $root "defaults.ini") -WindowName "CastSpellWnd"
-Ensure-WindowVisible -Path (Join-Path $root "defaults.ini") -WindowName "SpellBookWnd"
-
-Get-ChildItem -LiteralPath $root -File -Filter "UI_*_The Hero Chronicles.ini" | ForEach-Object {
-    Ensure-WindowVisible -Path $_.FullName -WindowName "CastSpellWnd"
-    Ensure-WindowVisible -Path $_.FullName -WindowName "SpellBookWnd"
-}
-
 if (!(Test-Path -LiteralPath $eqgame)) {
     throw "eqgame.exe was not found. Put this launcher in your EverQuest RoF2 folder."
 }
