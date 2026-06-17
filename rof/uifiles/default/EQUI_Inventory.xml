@@ -2423,7 +2423,6 @@
 		<Pieces>IW_Destroy</Pieces>
 		<Pieces>IW_Name</Pieces>
 		<Pieces>IW_Level</Pieces>
-		<Pieces>IW_Class</Pieces>
 		<Pieces>IW_Deity</Pieces>
 		<Pieces>IW_HP</Pieces>
 		<Pieces>IW_CurrentHP</Pieces>
