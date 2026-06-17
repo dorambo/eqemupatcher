@@ -735,6 +735,7 @@
 	</Label>
 	<Label item="IW_Class">
 		<EQType>3</EQType>
+		<Visible>false</Visible>
 		<RelativePosition>true</RelativePosition>
 		<Location>
 			<X>26</X>
