@@ -63,7 +63,8 @@ function Restore-PatchBytes {
         [string]$Name,
         [int]$Offset,
         [byte[]]$BadPatched,
-        [byte[]]$Original
+        [byte[]]$Original,
+        [byte[]]$AllowedPatched = @()
     )
 
     if ($Offset + $Original.Length -gt $bytes.Length) {
@@ -81,6 +82,21 @@ function Restore-PatchBytes {
     if ($already_original) {
         Write-Host "$Name restore is already applied."
         return
+    }
+
+    if ($AllowedPatched.Length -gt 0) {
+        $allowed = $true
+        for ($i = 0; $i -lt $AllowedPatched.Length; $i++) {
+            if ($bytes[$Offset + $i] -ne $AllowedPatched[$i]) {
+                $allowed = $false
+                break
+            }
+        }
+
+        if ($allowed) {
+            Write-Host "$Name restore is not needed; supported replacement patch is already applied."
+            return
+        }
     }
 
     for ($i = 0; $i -lt $BadPatched.Length; $i++) {
@@ -153,7 +169,14 @@ Restore-PatchBytes `
         0x8B, 0x44, 0x24, 0x04, 0x8D, 0x50, 0xFF, 0x83, 0xFA, 0x22, 0x77, 0x10, 0x83, 0xF8, 0x24, 0x72,
         0x01, 0xCC, 0x8A, 0x84, 0x01, 0x46, 0x02, 0x00, 0x00, 0xC2, 0x04, 0x00, 0x8A, 0x81, 0x47, 0x02,
         0x00, 0x00, 0xC2, 0x04, 0x00
-    ))
+    )) `
+    -AllowedPatched ([byte[]](0xB0, 0x01, 0xC2, 0x04, 0x00))
+
+Apply-PatchBytes `
+    -Name "Universal spell client level lookup" `
+    -Offset 0xAEB00 `
+    -Expected ([byte[]](0x8B, 0x44, 0x24, 0x04, 0x8D)) `
+    -Patched ([byte[]](0xB0, 0x01, 0xC2, 0x04, 0x00))
 
 Apply-PatchBytes `
     -Name "Combat abilities class gate" `
