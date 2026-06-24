@@ -7,19 +7,6 @@ nektulos.eqg
 mistythicket.eqg
 highpasshold.eqg
 commonlands.eqg
-uifiles\default\loadscreens\loadscreen22.jpg
-uifiles\default\loadscreens\loadscreen44.jpg
-uifiles\default\loadscreens\loadscreen45.jpg
-uifiles\default\loadscreens\loadscreen46.jpg
-uifiles\default\loadscreens\loadscreen47.jpg
-uifiles\default\loadscreens\loadscreen48.jpg
-uifiles\default\loadscreens\loadscreen49.jpg
-uifiles\default\loadscreens\loadscreen50.jpg
-uifiles\default\loadscreens\loadscreen51.jpg
-uifiles\default\loadscreens\loadscreen52.jpg
-uifiles\default\loadscreens\loadscreen53.jpg
-uifiles\default\loadscreens\loadscreen54.jpg
-uifiles\default\loadscreens\loadscreen55.jpg
 Resources\BaseData.txt.bak-prestigeclient-20260523-154740
 Resources\SkillCaps.txt.bak-multiclass-20260523-222454
 Resources\SkillCaps.txt.bak-prestige-visible-20260523-230706
@@ -27,7 +14,6 @@ Resources\SkillCaps.txt.bak-prestigeclient-20260523-154740
 THC_Launcher.cmd
 THC_Patch_AA_Slider.ps1
 dbstr_us.txt.bak-prestigeclient-20260523-154740
-eqgame.exe
 eqgame.exe.bak-thc-aa-slider
 spells_us.txt.bak-bane-sync-20260524-182655
 spells_us.txt.bak-multiclass-20260523-222454
