@@ -197,6 +197,7 @@ FakesAssemblies/
 
 eqemupatcher.yml
 eqemupatcher.exe
+!/rof/eqemupatcher.exe
 SolutionInfo.cs
 lib/
 /rof/eqgame.exe
