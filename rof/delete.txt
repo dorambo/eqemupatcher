@@ -7,4 +7,16 @@ nektulos.eqg
 mistythicket.eqg
 highpasshold.eqg
 commonlands.eqg
+NMSImgGui\keep
+NMSImgGui\Default_settings.ini
+NMSLoot\keep
+NMSLoot\Default_LootList.ini
+uifiles\Bigzz_NMS_UI\EQUI_Inventory.xml
+uifiles\Bigzz_NMS_UI\EQUI_NMSLootWnd.xml
+uifiles\Blue\EQUI_NMSLootWnd.xml
+uifiles\default\EQUI_NMSLootWnd.xml
+uifiles\gearcore\EQUI_NMSLootWnd.xml
+uifiles\nms_ui\EQUI_NMSLootWnd.xml
+uifiles\shinsparxx\EQUI_NMSLootWnd.xml
+uifiles\sneaky_defiance_ui\EQUI_NMSLootWnd.xml
 
