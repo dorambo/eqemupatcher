@@ -1,5 +1,9 @@
 # Changelog
 
+## THC patch manifest refresh - 2026-09-26
+
+- Regenerated the RoF patch manifest from the synchronized THC client payload.
+
 ## [1.0.4] 2023-02-11
 
 - Introduced new CICD-friendly pipeline
