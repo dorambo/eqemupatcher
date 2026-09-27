@@ -3681,6 +3681,19 @@
 			<CY>142</CY>
 		</Size>
 		<!-- Do NOT include an animation here since it messes with other UIs.	Instead an animation instance is dynamically created and used. -->
+		<Style_Visible>false</Style_Visible>
+	</StaticAnimation>
+	<StaticAnimation item="THCMulticlassCrest">
+		<ScreenID>THCMulticlassCrest</ScreenID>
+		<Location>
+			<X>3</X>
+			<Y>11</Y>
+		</Location>
+		<Size>
+			<CX>75</CX>
+			<CY>142</CY>
+		</Size>
+		<Animation>A_THCMulticlassCrest</Animation>
 	</StaticAnimation>
 	<Screen item="IW_CharacterView">
 		<ScreenID>IW_CharacterView</ScreenID>
@@ -3703,7 +3716,7 @@
 		<Style_Minimizebox>false</Style_Minimizebox>
 		<Style_Border>true</Style_Border>
 		<Style_Sizable>false</Style_Sizable>
-		<Pieces>ClassAnim</Pieces>
+		<Pieces>THCMulticlassCrest</Pieces>
 	</Screen>
 	<Button item="IW_DoneButton">
 		<ScreenID>DoneButton</ScreenID>
