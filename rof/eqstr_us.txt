@@ -3669,7 +3669,7 @@ EQST0002
 6213 Some broadcasts
 6214 Skills
 6215 Special Abilities
-6216 THC Loot
+6216 Unused at this time
 6217 Default Text
 6218 Unused at this time
 6219 Merchant Offer Price
@@ -3697,7 +3697,7 @@ EQST0002
 6241 Chat Channel 7
 6242 Chat Channel 8
 6243 Chat Channel 9
-6244 Chat Channel 10
+6244 THC Loot
 6245 Melee Crits
 6246 Spell Crits
 6247 Too far away (melee)
