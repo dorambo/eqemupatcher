@@ -3669,7 +3669,7 @@ EQST0002
 6213 Some broadcasts
 6214 Skills
 6215 Special Abilities
-6216 Unused at this time
+6216 THC Loot
 6217 Default Text
 6218 Unused at this time
 6219 Merchant Offer Price
