@@ -1,5 +1,13 @@
 # Changelog
 
+## THC AutoForage client update - 2026-10-14
+
+- Added native AutoForage slash commands: `/autoforage`, `/startforage`,
+  `/stopforage`, `/keepitem`, and `/destroyitem`.
+- Synchronize the Forage hotbutton's red cooldown display with the server,
+  including automatic attempts and restored login/zoning cooldowns.
+- Tested in game with Brakk; no MacroQuest dependency.
+
 ## THC patch manifest refresh - 2026-09-26
 
 - Regenerated the RoF patch manifest from the synchronized THC client payload.
