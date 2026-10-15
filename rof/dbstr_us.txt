@@ -557,6 +557,9 @@
 62^6^Surrounds your target with an aura of protection, warding away poison for %z.^0
 62^11^Tunare^0
 62^12^Tunares^0
+62^17^Wayfarer's Seal^0
+62^18^Wayfarer's Seals^0
+62^71^Wayfarer's Seal^0
 62^15^The home of the High Elves, or Koada'Dal, is within the magnificent and pristine architecture of the city of Felwithe. The structures crafted behind the walls make the beauty of the surrounding forests pale. The city lies within the Greater Faydark on the continent of Faydwer.^0
 63^5^Memory Blur^0
 63^6^Surrounds your target with an aura of protection, warding away disease for %z.^0
