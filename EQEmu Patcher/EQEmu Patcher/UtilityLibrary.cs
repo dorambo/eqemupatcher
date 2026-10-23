@@ -35,7 +35,16 @@ namespace EQEmu_Patcher
                     }
                     outPath = System.IO.Path.GetDirectoryName(Application.ExecutablePath) + "\\" + outFile;
 
-                    using (var w = File.Create(outPath)) {
+                    if (string.Equals(outFile, "eqhost.txt", StringComparison.OrdinalIgnoreCase) && File.Exists(outPath))
+                    {
+                        using (var contents = new MemoryStream())
+                        {
+                            await stream.CopyToAsync(contents, 81920, cts.Token);
+                            cts.Token.ThrowIfCancellationRequested();
+                            EqHostUpdate.Apply(outPath, contents.ToArray());
+                        }
+                    }
+                    else using (var w = File.Create(outPath)) {
                         await stream.CopyToAsync(w, 81920, cts.Token);
                     }
                 }
