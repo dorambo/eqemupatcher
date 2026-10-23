@@ -545,13 +545,12 @@ namespace EQEmu_Patcher
 
                 // check if file exists and is already patched
                 if (File.Exists(path)) {
-                    var md5 = UtilityLibrary.GetMD5(path);
-                    if (md5.ToUpper() == entry.md5.ToUpper())
+                    if (PatchFileMatch.Matches(path, entry.name, entry.md5))
                     {
                         currentBytes += entry.size;
                         continue;
                     }
-                    Console.WriteLine($"{path} {md5} vs {entry.md5}");
+
                 }
 
 

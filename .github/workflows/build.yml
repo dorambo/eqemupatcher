@@ -26,6 +26,14 @@ jobs:
       - name: Add MSBuild to PATH
         uses: microsoft/setup-msbuild@v1.1.3
 
+      - name: Verify RoF2 payload
+        run: python tools/verify-payload.py
+
+      - name: Test map matching
+        run: |
+          msbuild tools/MapMatchTests.csproj /p:Configuration=Release /p:PreferredToolArchitecture=x64 /v:minimal
+          .\tools\bin\MapMatchTests.exe
+
       - name: Restore NuGet packages
         working-directory: ${{ env.GITHUB_WORKSPACE }}
         run: |
@@ -45,6 +53,9 @@ jobs:
           .\filelistbuilder-win-x64.exe "rof" "${{ env.STORAGE_URL }}" "../EQEmu Patcher/EQEmu Patcher/bin/Release/eqemupatcher.exe"
           move "../EQEmu Patcher/EQEmu Patcher/bin/Release/eqemupatcher.exe" "../EQEmu Patcher/EQEmu Patcher/bin/Release/${{ env.FILE_NAME }}.exe"
           move eqemupatcher-hash.txt ${{ env.FILE_NAME }}-hash.txt
+
+      - name: Verify generated download hashes
+        run: python tools/verify-payload.py rof/filelist_rof.yml
 
       - name: Release
         uses: "marvinpinto/action-automatic-releases@latest"

@@ -7,3 +7,6 @@
 *.edd binary
 *.dll binary
 *.exe binary
+
+# Hash payload bytes exactly as served by raw GitHub downloads.
+rof/** -text
